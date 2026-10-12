@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { profil } from "@/lib/data";
 import { getAllDepartemen, getRingkasanBeranda } from "@/lib/queries";
 
@@ -19,8 +20,15 @@ export default async function BerandaPage() {
     <div>
       <section className="bg-gradient-to-b from-primary to-primary-dark text-cream">
         <div className="mx-auto max-w-5xl px-4 py-16 text-center">
-          <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-cream text-2xl font-bold text-primary shadow-lg">
-            F
+          <div className="mx-auto flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-cream shadow-lg">
+            <Image
+              src="/logo-formalis.jpg"
+              alt="Logo FORMALIS"
+              width={96}
+              height={96}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
           <h1 className="mt-6 font-heading text-4xl text-gold md:text-5xl">
             {profil.nama}

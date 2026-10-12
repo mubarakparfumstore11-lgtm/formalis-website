@@ -19,6 +19,10 @@ export const metadata = {
   title: "FORMALIS - Forum Komunikasi Mahasiswa LIPIA se-Sulawesi",
   description:
     "Website resmi FORMALIS, Forum Komunikasi Mahasiswa LIPIA se-Sulawesi.",
+  icons: {
+    icon: "/logo-formalis.jpg",
+    apple: "/logo-formalis.jpg",
+  },
 };
 
 export default function RootLayout({ children }) {

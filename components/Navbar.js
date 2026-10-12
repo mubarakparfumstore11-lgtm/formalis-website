@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const menu = [
@@ -32,8 +33,14 @@ export default function Navbar() {
           className="flex items-center gap-2"
           onClick={() => setOpen(false)}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-cream text-xs font-bold text-primary">
-            F
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-cream">
+            <Image
+              src="/logo-formalis.jpg"
+              alt="Logo FORMALIS"
+              width={36}
+              height={36}
+              className="h-full w-full object-cover"
+            />
           </span>
           <span className="font-heading text-lg tracking-wide text-gold">
             FORMALIS
