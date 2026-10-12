@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { profil } from "@/lib/data";
+import MaknaLambangDiagram from "@/components/MaknaLambangDiagram";
 
 export const metadata = { title: "Profil - FORMALIS" };
 
@@ -30,7 +31,12 @@ export default function ProfilPage() {
 
       <section className="mt-8">
         <h2 className="font-heading text-xl text-primary-dark">Makna Lambang</h2>
-        <div className="mt-4 flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+
+        <div className="mt-4">
+          <MaknaLambangDiagram />
+        </div>
+
+        <div className="mt-4 flex flex-col items-center gap-6 sm:hidden">
           <div className="flex h-32 w-32 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-soft bg-surface shadow-sm">
             <Image
               src="/logo-formalis.jpg"
@@ -40,7 +46,7 @@ export default function ProfilPage() {
               className="h-full w-full object-cover"
             />
           </div>
-          <ul className="flex-1 space-y-3">
+          <ul className="w-full flex-1 space-y-3">
             {profil.maknaLambang.map((item) => (
               <li
                 key={item.simbol}
