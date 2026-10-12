@@ -19,8 +19,14 @@ export default function Footer() {
           Forum Komunikasi Mahasiswa LIPIA se-Sulawesi
         </p>
         <p className="mt-3 text-cream/70">
-          Instagram: {kontak.instagram} &middot; TikTok: {kontak.tiktok}{" "}
-          &middot; WhatsApp: {kontak.whatsapp}
+          Instagram:{" "}
+          <a href={kontak.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold">
+            {kontak.instagram}
+          </a>{" "}
+          &middot; Facebook: {kontak.facebook} &middot; WhatsApp:{" "}
+          <a href={kontak.whatsappUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-gold">
+            {kontak.whatsapp}
+          </a>
         </p>
         <p className="mt-4 text-xs text-cream/50">
           &copy; {tahun ?? ""} FORMALIS &middot;{" "}
