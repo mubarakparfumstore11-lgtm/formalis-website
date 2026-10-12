@@ -45,7 +45,37 @@ export default async function PengurusPage({ searchParams }) {
         </button>
       </form>
 
-      <div className="mt-8 overflow-x-auto rounded-xl border border-border-soft bg-surface shadow-sm">
+      {/* Kartu: tampil di layar kecil (HP) */}
+      <div className="mt-8 space-y-3 sm:hidden">
+        {pengurus.map((p) => (
+          <div
+            key={p.id}
+            className="flex items-center gap-3 rounded-xl border border-border-soft bg-surface p-4 shadow-sm"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-soft bg-background text-sm font-semibold text-primary-dark">
+              {p.foto_url ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={p.foto_url} alt="" className="h-full w-full object-cover" />
+              ) : (
+                p.nama?.charAt(0)
+              )}
+            </span>
+            <div className="min-w-0">
+              <p className="font-medium text-foreground">{p.nama}</p>
+              <p className="truncate text-sm text-gold">{p.jabatan}</p>
+              <p className="truncate text-xs text-foreground/60">{p.departemen?.nama}</p>
+            </div>
+          </div>
+        ))}
+        {pengurus.length === 0 && (
+          <p className="rounded-xl border border-border-soft bg-surface p-6 text-center text-sm text-foreground/60">
+            Tidak ada pengurus yang cocok.
+          </p>
+        )}
+      </div>
+
+      {/* Tabel: tampil di layar sm ke atas */}
+      <div className="mt-8 hidden overflow-x-auto rounded-xl border border-border-soft bg-surface shadow-sm sm:block">
         <table className="w-full text-left text-sm">
           <thead className="bg-primary text-cream">
             <tr>
