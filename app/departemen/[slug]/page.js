@@ -35,10 +35,20 @@ export default async function DepartemenDetailPage({ params }) {
           {pengurus.map((p) => (
             <div
               key={p.id}
-              className="rounded-xl border border-border-soft bg-surface p-4"
+              className="flex items-center gap-3 rounded-xl border border-border-soft bg-surface p-4"
             >
-              <p className="font-medium text-foreground">{p.nama}</p>
-              <p className="text-sm text-gold">{p.jabatan}</p>
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border-soft bg-background text-sm font-semibold text-primary-dark">
+                {p.foto_url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={p.foto_url} alt="" className="h-full w-full object-cover" />
+                ) : (
+                  p.nama?.charAt(0)
+                )}
+              </span>
+              <div>
+                <p className="font-medium text-foreground">{p.nama}</p>
+                <p className="text-sm text-gold">{p.jabatan}</p>
+              </div>
             </div>
           ))}
           {pengurus.length === 0 && (

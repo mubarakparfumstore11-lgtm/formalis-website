@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { ubahPengurus } from "../actions";
+import UnggahFotoPengurus from "@/components/UnggahFotoPengurus";
 
 export const metadata = { title: "Ubah Pengurus - FORMALIS" };
 
@@ -20,6 +21,10 @@ export default async function UbahPengurusPage({ params }) {
   return (
     <div className="max-w-md">
       <h1 className="font-heading text-2xl text-primary">Ubah Pengurus</h1>
+
+      <div className="mt-6">
+        <UnggahFotoPengurus pengurusId={item.id} fotoUrl={item.foto_url} />
+      </div>
 
       <form action={ubah} className="mt-6 space-y-4">
         <div>

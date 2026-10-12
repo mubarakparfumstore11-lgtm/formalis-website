@@ -49,6 +49,7 @@ export default async function PengurusPage({ searchParams }) {
         <table className="w-full text-left text-sm">
           <thead className="bg-primary text-cream">
             <tr>
+              <th className="px-4 py-3"></th>
               <th className="px-4 py-3">Nama</th>
               <th className="px-4 py-3">Departemen</th>
               <th className="px-4 py-3">Jabatan</th>
@@ -57,6 +58,16 @@ export default async function PengurusPage({ searchParams }) {
           <tbody>
             {pengurus.map((p) => (
               <tr key={p.id} className="border-t border-border-soft">
+                <td className="px-4 py-3">
+                  <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-border-soft bg-background text-xs font-semibold text-primary-dark">
+                    {p.foto_url ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={p.foto_url} alt="" className="h-full w-full object-cover" />
+                    ) : (
+                      p.nama?.charAt(0)
+                    )}
+                  </span>
+                </td>
                 <td className="px-4 py-3">{p.nama}</td>
                 <td className="px-4 py-3">{p.departemen?.nama}</td>
                 <td className="px-4 py-3">{p.jabatan}</td>
@@ -64,7 +75,7 @@ export default async function PengurusPage({ searchParams }) {
             ))}
             {pengurus.length === 0 && (
               <tr>
-                <td colSpan={3} className="px-4 py-6 text-center text-foreground/60">
+                <td colSpan={4} className="px-4 py-6 text-center text-foreground/60">
                   Tidak ada pengurus yang cocok.
                 </td>
               </tr>

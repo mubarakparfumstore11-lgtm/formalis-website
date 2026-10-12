@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { profil } from "@/lib/data";
-import { getAllDepartemen, getRingkasanBeranda } from "@/lib/queries";
+import { getAllDepartemen, getFotoKegiatanTerbaru, getRingkasanBeranda } from "@/lib/queries";
 
 export default async function BerandaPage() {
-  const [departemen, ringkasan] = await Promise.all([
+  const [departemen, ringkasan, fotoKegiatan] = await Promise.all([
     getAllDepartemen(),
     getRingkasanBeranda(),
+    getFotoKegiatanTerbaru(8),
   ]);
 
   const statistik = [
@@ -84,10 +85,34 @@ export default async function BerandaPage() {
 
       <section className="mx-auto max-w-5xl px-4 py-12">
         <h2 className="font-heading text-2xl text-primary">Galeri Kegiatan</h2>
-        <p className="mt-4 rounded-xl border border-dashed border-border-soft bg-surface p-8 text-center text-sm text-foreground/60">
-          Belum ada foto kegiatan. Foto akan tampil otomatis di sini setelah
-          pengurus mengunggahnya lewat panel admin.
-        </p>
+        {fotoKegiatan.length > 0 ? (
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {fotoKegiatan.map((f) => (
+              <Link
+                key={f.id}
+                href={f.program_kerja ? `/program-kerja/${f.program_kerja.id}` : "/program-kerja"}
+                className="group block overflow-hidden rounded-xl border border-border-soft bg-surface shadow-sm"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={f.url}
+                  alt={f.program_kerja?.nama ?? "Foto kegiatan"}
+                  className="h-32 w-full object-cover transition-transform group-hover:scale-105 sm:h-40"
+                />
+                {f.program_kerja && (
+                  <p className="truncate px-2 py-2 text-xs text-foreground/70">
+                    {f.program_kerja.nama}
+                  </p>
+                )}
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-4 rounded-xl border border-dashed border-border-soft bg-surface p-8 text-center text-sm text-foreground/60">
+            Belum ada foto kegiatan. Foto akan tampil otomatis di sini setelah
+            pengurus mengunggahnya lewat panel admin.
+          </p>
+        )}
       </section>
     </div>
   );
