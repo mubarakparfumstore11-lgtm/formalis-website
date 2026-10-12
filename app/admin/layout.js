@@ -13,6 +13,7 @@ function menuUntukRole(role) {
     menu.push({ href: "/admin/kas", label: "Kas" });
     menu.push({ href: "/admin/kas-transaksi", label: "Pemasukan/Pengeluaran" });
   }
+  menu.push({ href: "/admin/panduan", label: "Panduan" });
   return menu;
 }
 

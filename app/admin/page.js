@@ -38,6 +38,11 @@ export default async function AdminDashboardPage() {
       desc: "Catat transaksi kas di luar iuran bulanan dan lihat saldo akhir.",
     });
   }
+  cards.push({
+    href: "/admin/panduan",
+    label: "Panduan Penggunaan",
+    desc: "Baru pertama kali pakai panel ini? Baca dulu panduan singkatnya di sini.",
+  });
 
   return (
     <div>
