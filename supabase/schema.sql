@@ -8,13 +8,14 @@ alter table if exists public.program_kerja rename to program_kerja_lama_tidak_di
 alter table if exists public.anggota rename to anggota_lama_tidak_dipakai;
 alter table if exists public.berita rename to berita_lama_tidak_dipakai;
 
--- Tabel departemen (9: BPH + 6 departemen fungsional)
+-- Tabel departemen (3 BPH: Ketum/Korwat, Sekretaris, Bendahara + departemen fungsional)
 create table public.departemen (
   id uuid primary key default gen_random_uuid(),
   slug text not null unique,
   nama text not null,
   deskripsi text,
-  urutan smallint not null default 0
+  urutan smallint not null default 0,
+  tipe text not null default 'fungsional' check (tipe in ('bph','fungsional'))
 );
 
 -- Tabel profil login pengurus (dibuat di Tahap 2, kolom baru ditambahkan di sini)

@@ -5,7 +5,7 @@ import { getAllDepartemen, getFotoKegiatanTerbaru, getRingkasanBeranda } from "@
 
 export default async function BerandaPage() {
   const [departemen, ringkasan, fotoKegiatan] = await Promise.all([
-    getAllDepartemen(),
+    getAllDepartemen({ tipe: "fungsional" }),
     getRingkasanBeranda(),
     getFotoKegiatanTerbaru(8),
   ]);
