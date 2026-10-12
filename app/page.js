@@ -26,7 +26,7 @@ export default async function BerandaPage() {
             {profil.nama}
           </h1>
           <p className="mt-2 text-lg md:text-xl">{profil.kepanjangan}</p>
-          <p className="mt-4 italic text-cream/80">&ldquo;{profil.slogan}&rdquo;</p>
+          <p className="mt-4 font-heading text-lg italic text-cream/90">&ldquo;{profil.slogan}&rdquo;</p>
         </div>
       </section>
 

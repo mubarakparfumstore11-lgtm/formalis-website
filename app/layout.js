@@ -1,12 +1,13 @@
-import { DM_Serif_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const heading = DM_Serif_Display({
+const heading = Fraunces({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const body = Plus_Jakarta_Sans({
