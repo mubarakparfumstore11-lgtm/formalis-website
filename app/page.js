@@ -30,7 +30,7 @@ export default async function BerandaPage() {
               priority
             />
           </div>
-          <h1 className="mt-6 font-heading text-4xl text-gold md:text-5xl">
+          <h1 className="mt-6 font-heading text-4xl text-primary-light md:text-5xl">
             {profil.nama}
           </h1>
           <p className="mt-2 text-lg md:text-xl">{profil.kepanjangan}</p>

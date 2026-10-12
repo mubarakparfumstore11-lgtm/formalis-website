@@ -23,7 +23,7 @@ export default function Navbar() {
         className="pointer-events-none absolute inset-0 opacity-20"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 10% 20%, var(--color-gold) 0, transparent 2px), radial-gradient(circle at 30% 60%, var(--color-gold) 0, transparent 2px), radial-gradient(circle at 50% 15%, var(--color-gold) 0, transparent 2px), radial-gradient(circle at 70% 55%, var(--color-gold) 0, transparent 2px), radial-gradient(circle at 90% 25%, var(--color-gold) 0, transparent 2px)",
+            "radial-gradient(circle at 10% 20%, var(--color-primary-light) 0, transparent 2px), radial-gradient(circle at 30% 60%, var(--color-primary-light) 0, transparent 2px), radial-gradient(circle at 50% 15%, var(--color-primary-light) 0, transparent 2px), radial-gradient(circle at 70% 55%, var(--color-primary-light) 0, transparent 2px), radial-gradient(circle at 90% 25%, var(--color-primary-light) 0, transparent 2px)",
           backgroundSize: "140px 60px",
         }}
       />
@@ -42,7 +42,7 @@ export default function Navbar() {
               className="h-full w-full object-cover"
             />
           </span>
-          <span className="font-heading text-lg tracking-wide text-gold">
+          <span className="font-heading text-lg tracking-wide text-primary-light">
             FORMALIS
           </span>
         </Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="hover:text-gold transition-colors"
+              className="hover:text-primary-light transition-colors"
             >
               {item.label}
             </Link>

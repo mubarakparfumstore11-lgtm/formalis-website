@@ -52,7 +52,7 @@ export default async function AdminLayout({ children }) {
       <header className="bg-primary-dark text-cream">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
           <div>
-            <p className="font-heading text-lg text-gold">Panel Pengurus FORMALIS</p>
+            <p className="font-heading text-lg text-primary-light">Panel Pengurus FORMALIS</p>
             {profile && (
               <p className="text-xs text-cream/70">
                 {profile.nama} &middot; {profile.role}
@@ -63,7 +63,7 @@ export default async function AdminLayout({ children }) {
           <form action={logout}>
             <button
               type="submit"
-              className="rounded-lg border border-gold/50 px-3 py-1.5 text-sm text-gold hover:bg-gold hover:text-primary-dark transition-colors"
+              className="rounded-lg border border-primary-light/50 px-3 py-1.5 text-sm text-primary-light hover:bg-primary-light hover:text-primary-dark transition-colors"
             >
               Keluar
             </button>
